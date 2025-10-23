@@ -1,0 +1,509 @@
+body{
+    margin: 0;
+   
+}
+
+
+
+/* ================ NAV ==================*/
+
+.nav{
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #111;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.nav a{
+    display: block;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.nav a:hover{
+    background-color: #575757;
+}
+
+.nav h2{
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ==================== Scroll System ==========================*/
+
+.horizontal-scroll{
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width:auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    height: 100vh;
+    margin-left: 150px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+.content{
+    scroll-snap-align: start;
+    min-width:calc(100vw - 200px);
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.content h1{
+    font-size: 50px;
+}
+
+/* ========== Webpage format ======== */
+
+.title{
+    width: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.title h1{
+    font-size: 50px;
+    margin: 0 0 20px 0;
+    color: #111;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.title p{
+    font-size: 18px;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+.skills-columns{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 0 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.left-side, .right-side{
+    flex: 1;
+    margin: 0 20px;
+}
+
+.left-side, .right-side h2{
+    margin-bottom: 20px;
+}
+
+
+.top-right-side, .bottom-right-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    border-radius: 20px;
+    height: 100%;
+    width: 800px;
+    justify-content: flex-start;
+}
+
+.right-column{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.professional{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+#professionalProfile .right-column{
+    background-color: transparent;
+}
+
+
+
+
+/*================= CARD =================*/
+
+.card{
+    width: 250px;
+    height: 310px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    position: relative;
+    background-color: transparent;
+    position: relative;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card::after, .card::before{
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent, rgb(0, 0, 255));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 1.5px;
+    border-radius: 25px 25px 0px 1px;
+    animation: 3s spin linear infinite;
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+
+    to{
+        --angle: 360deg;
+    }
+}
+
+.card::before{
+    filter: blur(0.5rem);
+    opacity: 0.2;
+}
+
+.image-content{
+    row-gap: 5px;
+    position: relative;
+    padding: 25px 0;
+    border-radius: 25px 25px 0 0;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #258EA6;
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before, .overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #258EA6;
+}
+
+.overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #C7DAD7;
+}
+
+.image-content, .card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;
+    background-color: #C7DAD7;
+    
+}
+
+.card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    
+    padding: 3px;
+}
+
+.card-image .card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;    
+    border-radius: 50px;
+    padding: 3px;
+}
+
+
+
+.name{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    
+}
+
+.button{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: #258EA6;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover{
+    background: #20798e;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========== Card Slider ================ */
+
+.card-wrapper {
+    gap: 20px;
+    justify-content: center; 
+}
+
+
+.slide-container{
+    width: 100%;
+    background-color: transparent;
+    height: 100%;
+    max-height: 500px;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slide-content{
+    margin: 40px;
+}
+
+/* Make cards shrink on small screens */
+@media (max-width: 768px) {
+    .slide-container {
+        padding: 20px 0;
+    }
+    
+    .card {
+        width: 250px; /* smaller cards for mobile */
+        max-height: 350px;
+    }
+    
+    .card-image {
+        height: 120px;
+        width: 120px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+/*Fade effect */
+
+ body {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 3s ease, transform 3s ease;
+    position: relative;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+    
+  }
+
+/* Project Content*/
+
+
+#projects{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 40px;
+}
+.projects-right-side{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    margin-top: 60px;
+}
+
+.projects-left-side{
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    
+
+.projects-right-side, .project-section{
+    box-sizing: border-box;
+}
+
+.project-section{
+    flex: 1;
+    display: flex;
+    background-color: #C7DAD7;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-section:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-section h2{
+    margin-top: 0;
+    color: black;
+}
+
+.project-section p{
+    color: #333;
+    line-height: 1.4;
+    font-size: larger;
+}
+
+.project-section .button{
+    padding: 10px;
+    align-items: center;
+    background-color: #258EA6;
+}
+
+.project-text{
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-button{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+.project-image{
+    width: 275px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    
+}
+
+.project-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+}
+
+
+
+/* Front Page*/
+
+#home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-left {
+    flex: 1;
+    padding-right: 50px;
+}
+
+
+.home-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center;
+    gap: 30px;              
+}
+
+
+#home .title h1 {
+    font-size: 90px; 
+    color: #111;
+    margin-bottom: 30px;
+}
+
+#home .title p {
+    font-size: 25px; 
+    line-height: 1.8;
+    color: #333;
+}
